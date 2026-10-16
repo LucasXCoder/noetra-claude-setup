@@ -1,0 +1,201 @@
+{
+  "env": {
+    "CLAUDE_CODE_DISABLE_FAST_MODE": "1",
+    "CLAUDE_MEM_DISABLE_OBSERVATION": "1",
+    "PYTHONUTF8": "1"
+  },
+  "permissions": {
+    "allow": [],
+    "defaultMode": "acceptEdits"
+  },
+  "model": "sonnet",
+  "skillOverrides": {
+    "netmiko-ssh-automation": "name-only",
+    "network-config-validation": "name-only",
+    "homelab-network-setup": "name-only",
+    "rust-patterns": "name-only",
+    "rust-testing": "name-only",
+    "pytorch-patterns": "name-only",
+    "liquid-glass-design": "name-only",
+    "seo": "name-only",
+    "marketing-campaign": "name-only",
+    "content-engine": "name-only",
+    "ckm:brand": "name-only",
+    "brand-voice": "name-only",
+    "ckm:banner-design": "off",
+    "brandkit": "name-only",
+    "ckm:slides": "name-only",
+    "lead-intelligence": "name-only",
+    "market-research": "name-only",
+    "data-scraper-agent": "off",
+    "docker-patterns": "name-only",
+    "postgres-patterns": "name-only",
+    "database-migrations": "name-only",
+    "deployment-patterns": "name-only",
+    "latency-critical-systems": "name-only",
+    "agent-eval": "name-only",
+    "eval-harness": "name-only",
+    "cost-aware-llm-pipeline": "name-only",
+    "team-agent-orchestration": "name-only",
+    "code-tour": "name-only",
+    "codebase-onboarding": "name-only",
+    "architecture-decision-records": "name-only",
+    "continuous-learning-v2": "name-only",
+    "skill-scout": "name-only",
+    "minimalist-ui": "name-only",
+    "industrial-brutalist-ui": "name-only",
+    "motion-ui": "name-only",
+    "motion-foundations": "name-only",
+    "motion-patterns": "name-only",
+    "ckm:ui-styling": "name-only",
+    "ckm:design": "off",
+    "dashboard-builder": "name-only",
+    "mcp-server-patterns": "name-only",
+    "context-budget": "name-only",
+    "token-budget-advisor": "name-only",
+    "prompt-optimizer": "name-only",
+    "agent-architecture-audit": "name-only",
+    "parallel-execution-optimizer": "name-only",
+    "plan-orchestrate": "name-only",
+    "repo-scan": "name-only",
+    "full-output-enforcement": "name-only",
+    "redesign-existing-projects": "name-only",
+    "high-end-visual-design": "name-only",
+    "browser-qa": "name-only",
+    "design-system": "name-only",
+    "frontend-design-direction": "name-only",
+    "make-interfaces-feel-better": "name-only",
+    "vite-patterns": "name-only",
+    "react-performance": "name-only",
+    "react-testing": "name-only",
+    "verification-loop": "off",
+    "skill-creator": "name-only"
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"__HOME__/.claude/skills/unlazy/scripts/stop-hook.mjs\" --unlazy",
+            "timeout": 20
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 -I \"__HOME__/.claude-mem/noetra-patch-hooks.py\" --quiet",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"__HOME__/.claude/hooks/guard-shell.mjs\"",
+            "timeout": 10,
+            "onFailure": "block"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"__HOME__/.claude/hooks/protect-files.mjs\"",
+            "timeout": 10,
+            "onFailure": "block"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "node \"__HOME__/.claude/statusline.mjs\"",
+    "padding": 0,
+    "refreshInterval": 30
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "claude-mem@thedotmack": true,
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": false,
+    "pyright-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-code"
+      }
+    },
+    "thedotmack": {
+      "source": {
+        "source": "github",
+        "repo": "thedotmack/claude-mem"
+      },
+      "autoUpdate": false
+    }
+  },
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    },
+    "claude-sonnet-5-5": {
+      "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
+  "autoCompactWindow": 400000,
+  "autoUpdatesChannel": "latest",
+  "tui": "fullscreen",
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark",
+  "agentPushNotifEnabled": true,
+  "skipAutoPermissionPrompt": false,
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: unknown — this checkout (__HOME__) has no tracked files and no git remotes configured; treat as not a trusted repo at all until a remote exists",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured",
+      "**Default / protected branches**: unknown — no remote/default branch set for this checkout",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine with open internet",
+      "**Source control**: no trusted repo established for this checkout (no remotes); treat any git push target as unverified until configured",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured — bucket config scan did not complete cleanly, no usage corroboration either",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: personal/hobby projects — multi-agent orchestration (\"Noetra\" AI OS), trading-strategy research/backtesting tooling, and various side projects (hardware, scholarship automation, SaaS experiments), per global CLAUDE.md",
+      "**Trusted repo**: none — this checkout (__HOME__) has zero tracked files and no configured remotes; no repo to scope trust to yet",
+      "**Org-specific CLIs**: None configured",
+      "no \"routine under <user>/ prefix\" qualifiers found"
+    ]
+  },
+  "autoMemoryEnabled": false
+}

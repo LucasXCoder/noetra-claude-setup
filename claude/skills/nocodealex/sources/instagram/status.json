@@ -1,0 +1,23 @@
+{
+ "profile": "https://www.instagram.com/nocodealex",
+ "checked": "2026-10-16",
+ "status": "blocked_without_login",
+ "followers_reported": "45,000+ (chen.media byline, 2026-10-16); ~34,150 per instastatistics.com on 2026-09-22",
+ "routes_tried": [
+  {"route": "yt-dlp instagram:user extractor (2026.06.09 and 2026.08.19)", "result": "extractor marked broken: 'Unable to extract data'"},
+  {"route": "www.instagram.com/api/v1/users/web_profile_info (x-ig-app-id)", "result": "HTTP 429"},
+  {"route": "i.instagram.com/api/v1/users/web_profile_info", "result": "HTTP 429"},
+  {"route": "profile HTML and /embed/", "result": "login wall; no post shortcodes or captions in markup"},
+  {"route": "mirror viewers (picuki, greatfon, dumpor, insta-stories-viewer, imginn, pixwox)", "result": "JS-rendered or Cloudflare-blocked; zero post links in markup"},
+  {"route": "Threads @nocodealex, Linktree, X", "result": "no usable post index (Linktree 404)"},
+  {"route": "logged-in Chrome automation", "result": "declined by user 2026-10-16"},
+  {"route": "create an Instagram account", "result": "not done: needs phone/email verification tied to a real identity and Instagram's terms forbid automated sign-up"}
+ ],
+ "equivalents": {
+  "youtube_shorts": "https://www.youtube.com/@alexchenbuildsai/shorts — the reels are cross-posted here (same titles, '#claude #ai #claudecode', 'Comment X and I'll DM you')",
+  "guides": "https://chen.media/guides — one written guide per reel ('Comment X and I'll DM you the guide'); 385 guides",
+  "github": "https://github.com/alexyc9381 — the skills the reels demo"
+ },
+ "gap": "Reels that were never cross-posted to YouTube are covered only through their chen.media guide (free part). Their spoken audio is not captured.",
+ "upgrade_path": "Log into Instagram in Firefox (Chrome's app-bound cookie encryption blocks yt-dlp on Windows), then run: yt-dlp --cookies-from-browser firefox --flat-playlist --print \"%(id)s|%(title)s\" https://www.instagram.com/nocodealex/ and re-run /engram nocodealex."
+}

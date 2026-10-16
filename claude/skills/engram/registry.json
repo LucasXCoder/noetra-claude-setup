@@ -1,0 +1,134 @@
+{
+ "schema": 1,
+ "description": "Engram brain fleet registry. One entry per brain built by /engram. Used for cross-brain routing ('which brain knows about X?') and as the data source for fleet visualization.",
+ "updated": "2026-10-16",
+ "brains": [
+  {
+   "name": "delta",
+   "creator": "Delta Trend Trading (Thomas)",
+   "handle": "@deltatrendtrading",
+   "domains": [
+    "quantitative trading",
+    "statistical strategy validation",
+    "Monte Carlo simulation",
+    "feature engineering",
+    "prop-firm math (Topstep/Apex EV)",
+    "guru/ICT/SMC debunking"
+   ],
+   "path": ".claude/skills/delta",
+   "trigger": "/delta",
+   "coverage": {
+    "total": 87,
+    "transcript": 81,
+    "description_only": 1,
+    "missed": 5
+   },
+   "sources": {
+    "youtube": "https://www.youtube.com/@deltatrendtrading",
+    "instagram": "https://www.instagram.com/deltatrendtrading (blocked)"
+   },
+   "files": {
+    "core": "references/knowledge.md",
+    "topics": "references/topics/",
+    "protocols": "references/protocols.md",
+    "claims": "claims.jsonl",
+    "manifest": "sources/manifest.json"
+   },
+   "claims_count": 648,
+   "built": "2026-06-11",
+   "last_updated": "2026-07-29",
+   "atoms_count": 1539,
+   "edges_count": 1292
+  },
+  {
+   "name": "tradexlabs",
+   "creator": "TradeXLabs (Chiron / \"Ben Hay 1212\")",
+   "handle": "@tradexlabs",
+   "domains": [
+    "opening range breakout (ORB)",
+    "TradingView Pine automation",
+    "prop-firm passing and payouts",
+    "parameter optimization",
+    "ORB Sniper presets V1-V4",
+    "QuantPivots (separate product)"
+   ],
+   "path": ".claude/skills/tradexlabs",
+   "trigger": "/tradexlabs",
+   "coverage": {
+    "total": 774,
+    "transcript": 712,
+    "substantive": 619,
+    "trivial": 93,
+    "missed": 62,
+    "pivots_excluded_as_orb_source": 22
+   },
+   "sources": {
+    "youtube": "https://www.youtube.com/@tradexlabs"
+   },
+   "files": {
+    "core": "references/knowledge.md",
+    "topics": "references/topics/",
+    "protocols": "references/protocols.md",
+    "atoms": "atoms.jsonl",
+    "edges": "edges.jsonl",
+    "manifest": "sources/manifest.json",
+    "graph": "graph.html",
+    "build": "build_brain.py"
+   },
+   "atoms_count": 120,
+   "edges_count": 120,
+   "status": "PARTIAL - 8 of 619 substantive sources fully mined, 18 part-mined",
+   "built": "2026-08-05",
+   "last_updated": "2026-08-05"
+  },
+  {
+   "name": "nocodealex",
+   "creator": "Alex Chen",
+   "handle": "@nocodealex",
+   "domains": [
+    "Claude Code optimisation",
+    "usage limits and model routing",
+    "Claude skills, plugins and MCP",
+    "multi-Claude panels and agent teams",
+    "prompting and output quality",
+    "open-source AI tool alternatives",
+    "building and selling with AI"
+   ],
+   "path": ".claude/skills/nocodealex",
+   "trigger": "/nocodealex",
+   "coverage": {
+    "total": 514,
+    "youtube": {
+     "transcript": 118
+    },
+    "guide": {
+     "free_only": 385
+    },
+    "repo": {
+     "full_text": 11
+    }
+   },
+   "sources": {
+    "instagram": "https://www.instagram.com/nocodealex (login wall; covered via cross-posts)",
+    "youtube": "https://www.youtube.com/@alexchenbuildsai",
+    "guides": "https://chen.media/guides (free part only)",
+    "github": "https://github.com/alexyc9381"
+   },
+   "files": {
+    "core": "references/knowledge.md",
+    "topics": "references/topics/",
+    "protocols": "references/protocols.md",
+    "atoms": "atoms.jsonl",
+    "edges": "edges.jsonl",
+    "manifest": "sources/manifest.json",
+    "graph": "graph.html",
+    "build": "build_brain.py"
+   },
+   "atoms_count": 8291,
+   "edges_count": 13428,
+   "status": "DONE - 514 of 514 sources mined; guides free_only",
+   "built": "2026-10-16",
+   "last_updated": "2026-10-16"
+  }
+ ]
+}

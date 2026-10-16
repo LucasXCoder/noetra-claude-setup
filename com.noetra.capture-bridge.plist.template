@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Noetra capture bridge: streams Claude Code transcripts into claude-mem (no LLM). Mac
+     equivalent of the Windows logon task start-capture-bridge.ps1. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.noetra.capture-bridge</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>__PYTHON__</string>
+    <string>__HOME__/.claude-mem/capture-bridge.py</string>
+  </array>
+  <key>WorkingDirectory</key><string>__HOME__/.claude-mem</string>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+  <key>ThrottleInterval</key><integer>30</integer>
+  <key>StandardOutPath</key><string>__HOME__/.claude-mem/logs/capture-bridge.stdout.log</string>
+  <key>StandardErrorPath</key><string>__HOME__/.claude-mem/logs/capture-bridge.stderr.log</string>
+</dict>
+</plist>
