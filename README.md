@@ -47,18 +47,9 @@ Flags: `--dry-run`, `--no-network` (files only), `--home DIR`.
 Anyone can use it (MIT licence). It installs a ready-made Claude Code setup: skills, agents, hooks, plugins and a memory system.
 
 - **Your own login.** It never copies logins or keys. You sign in with your own Claude account; usage comes out of your own plan.
-- **Make CLAUDE.md yours.**  is the author's personal file. Its Trading Research rules, the Noetra projects and the priorities are specific to him. Read it and delete or rewrite what is not yours before or right after installing.
+- **Make CLAUDE.md yours.** `claude/CLAUDE.md` is the author's personal file. Its Trading Research rules, the Noetra projects and the priorities are specific to him. Read it and delete or rewrite what is not yours before or right after installing.
 - **Your memory starts empty.** The author's memories, vault and private notes are not included.
-- **Check before you trust.** Run Noetra Claude Code setup — installer for macOS (works on Linux too).
-
-  ./install.sh                 install into $HOME, then add marketplaces/plugins via the claude CLI
-  ./install.sh --no-network    files only (skip plugin installs)
-  ./install.sh --dry-run       print what would happen, change nothing
-  ./install.sh --home DIR      install into DIR instead of $HOME (used by the bundle self-test)
-
-Safe to re-run. Anything it would overwrite is first copied to
-~/.claude/backups/pre-noetra-<timestamp>/.
-set -euo pipefail first; it prints every change. Hooks run code on your machine, so read them.
+- **Check before you trust.** Run `./install.sh --dry-run` first; it prints every change. Hooks run code on your machine, so read them.
 
 ## Not in this repo (on purpose)
 Other creators' brains (`delta`, `tradexlabs`), raw scraped transcripts and guide text, the owner's private task list,
