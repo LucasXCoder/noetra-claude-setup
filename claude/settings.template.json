@@ -120,6 +120,17 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:Program Files\nodejs\node.exe\" \"C:UsersLucas Jackson.claudehooksskill-router.mjs\"",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   },
   "statusLine": {
