@@ -126,7 +126,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"__HOME__/.claude/hooks/skill-router.mjs\"",
+            "command": "python3 -I \"__HOME__/.claude/hooks/skill_router.py\"",
             "timeout": 10
           }
         ]

@@ -129,6 +129,17 @@ if [ "$NETWORK" = 1 ] && have npm; then
   run npm install -g pyright typescript-language-server typescript || warn "language servers: npm install failed (try with sudo or fix npm's prefix)"
 fi
 
+# 5c. Skill router (hooks/skill_router.py): local embedding model + runtime. Best effort; without it the hook does nothing.
+if [ "$NETWORK" = 1 ] && have python3; then
+  MODEL_DIR="$TARGET_HOME/.cache/chroma/onnx_models/all-MiniLM-L6-v2"
+  run python3 -m pip install --user --quiet onnxruntime tokenizers numpy || warn "skill router: pip install failed (the hook stays inert)"
+  if [ ! -f "$MODEL_DIR/onnx/model.onnx" ]; then
+    run mkdir -p "$MODEL_DIR"
+    run curl -fsSL -o "$MODEL_DIR/onnx.tar.gz" https://chroma-onnx-models.s3.amazonaws.com/all-MiniLM-L6-v2/onnx.tar.gz \
+      && run tar -xzf "$MODEL_DIR/onnx.tar.gz" -C "$MODEL_DIR" || warn "skill router: model download failed (the hook stays inert)"
+  fi
+fi
+
 # 6. Prerequisites the hooks need.
 have node || warn "node not found: the unlazy Stop hook and statusline need it (brew install node)."
 have python3 || warn "python3 not found: the claude-mem recall/patch hooks need it (xcode-select --install)."
