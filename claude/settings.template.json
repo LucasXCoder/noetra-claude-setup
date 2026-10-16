@@ -126,7 +126,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"C:Program Files\nodejs\node.exe\" \"C:UsersLucas Jackson.claudehooksskill-router.mjs\"",
+            "command": "node \"__HOME__/.claude/hooks/skill-router.mjs\"",
             "timeout": 10
           }
         ]
