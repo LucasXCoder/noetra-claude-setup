@@ -140,6 +140,16 @@ if [ "$NETWORK" = 1 ] && have python3; then
   fi
 fi
 
+# 5d. Keyless MCP servers (user scope; telemetry off). Playwright/Serena/Context7 come with their plugins.
+if [ "$NETWORK" = 1 ] && have claude; then
+  while IFS='|' read -r name args; do
+    [ -z "$name" ] && continue
+    # shellcheck disable=SC2086
+    run claude mcp add "$name" -s user $args || warn "mcp $name: add failed (already added?)"
+  done < <(node -e 'for (const e of require(process.argv[1]).mcp_install || []) console.log(e)' "$HERE/manifest.json" 2>/dev/null)
+  have uvx || warn "uv not found: Semgrep/Serena MCP need it (brew install uv)."
+fi
+
 # 6. Prerequisites the hooks need.
 have node || warn "node not found: the unlazy Stop hook and statusline need it (brew install node)."
 have python3 || warn "python3 not found: the claude-mem recall/patch hooks need it (xcode-select --install)."

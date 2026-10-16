@@ -154,12 +154,26 @@
       "name": "composio-gmail",
       "type": "http",
       "needs_secret": true
+    },
+    {
+      "name": "chrome-devtools",
+      "type": "stdio",
+      "needs_secret": false
+    },
+    {
+      "name": "semgrep",
+      "type": "stdio",
+      "needs_secret": false
     }
   ],
   "claude_mem_scripts": [
     "capture-bridge.py",
     "noetra-patch-hooks.py",
     "noetra-recall-hook.py"
+  ],
+  "mcp_install": [
+    "chrome-devtools|-e CHROME_DEVTOOLS_MCP_NO_USAGE_STATISTICS=1 -e CHROME_DEVTOOLS_MCP_NO_UPDATE_CHECKS=1 -- npx -y chrome-devtools-mcp@latest --no-usage-statistics --no-performance-crux",
+    "semgrep|-- uvx semgrep mcp"
   ],
   "windows_records": [
     "noetra/memory-fix",
