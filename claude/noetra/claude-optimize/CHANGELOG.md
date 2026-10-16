@@ -77,3 +77,30 @@ Decisions rec-01 … rec-11 in `optimization/plan.json` list each pending change
 - **rec-07-lsp-plugins:** `npm i -g pyright typescript-language-server typescript`;
   `claude plugin install pyright-lsp@claude-plugins-official` and `typescript-lsp@claude-plugins-official`.
 - **Revert:** restore `backups/2026-10-16/settings.json`; `claude plugin uninstall pyright-lsp typescript-lsp`.
+
+## Round 2: "Yes do all these things" (2026-10-16)
+- **rec-10 skills/plugins:** `skillOverrides`: `ckm:design`, `ckm:banner-design`, `data-scraper-agent` (Gemini-keyed) and
+  `verification-loop` (duplicate) set to `off`; `skill-creator` to `name-only`. `code-review@claude-plugins-official` disabled
+  (the bundled `/code-review` supersedes it). Skills `security-review` renamed `ecc-security-checklist` and `deep-research`
+  renamed `deep-research-exa`, so the built-in `/security-review` and `/deep-research` are no longer shadowed.
+  Revert: `backups/2026-10-16/final/` (settings, skills); rename the two dirs back.
+- **opt-auto-memory-off:** `autoMemoryEnabled: false` (native memory is the frozen backup; claude-mem + the vault are the memory).
+- **opt-explore-haiku:** new `~/.claude/agents/Explore.md` (`model: haiku`, effort low, 100K compact cap); `code-explorer` and
+  `docs-lookup` agents set to `model: haiku`. Revert: delete Explore.md; `backups/2026-10-16/final/agents/`.
+- **rec-08/09 + opt-mandatory-workflow (CLAUDE.md):** 154 to 114 lines (13.0 to 9.9 KB). Projects, yearly goals, roadmap, offices and
+  parked tools moved to `~/.claude/noetra/CONTEXT.md` (loaded on demand). Added **Mandatory workflow** (done = a check exits 0;
+  superpowers in order; unlazy for big work; DESIGN.md for UI; nocodealex for Claude questions; librarian; find-skills) and
+  **Compact instructions**. Trading rules, Memory and Unlazy sections kept verbatim: two existing oracles depend on them.
+  Revert: `backups/2026-10-16/final/CLAUDE.md`.
+- **opt-memory-check-fix:** `noetra/memory-fix/memory_check.py --observer` crashed on a removed hard-coded plugin version; it now reads
+  the installed version and exec-form hooks.
+- **rec-06 auto mode: NOT applied.** The auto-mode classifier blocks Claude from editing its own permission rules even with chat
+  approval. Exact change and the safe route are in `PERMISSIONS-FOR-LUCAS.md`.
+- **opt-github-public-repo:** https://github.com/LucasXCoder/noetra-claude-setup (public). Built by `tools/build-mac-bundle.mjs --public`,
+  published by `tools/publish-public.mjs "message"` (scrub scan first; refuses to push on any hit). Left out on purpose: the
+  `delta`/`tradexlabs` brains (other creators' teaching), raw scraped transcripts/guide text/repo clones, `master-todo.md` (stub only),
+  the claude-mem database, all secrets. Redacted: local paths, a prospect's name, the owner's email. Commits use the GitHub no-reply address.
+- **Verified live:** a brand-new `claude -p` session loaded the new settings, saw the nocodealex skill, and the claude-mem observer made
+  no call (its last-success timestamp did not move). The 13.39/13.40 regression is closed in practice.
+
+**Change ids in this round:** rec-08-verification, rec-09-claudemd-slim, rec-10-gemini-skills-off, opt-auto-memory-off, opt-explore-haiku, opt-mandatory-workflow, opt-memory-check-fix, opt-github-public-repo, rec-06-auto-mode (deferred).
